@@ -1,39 +1,34 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{% static 'base.css' %}">
-    <link
-      href="https://fonts.googleapis.com/css?family=Amatic+SC|Courgette&display=swap"
-      rel="stylesheet"
-    />
-    <title>Document</title>
-    <style>
-      * {
-        font-family: "Courgette", cursive;
-      }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{% static 'base.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Courgette&display=swap" rel="stylesheet" />
+  <title>Document</title>
+
 </head>
+
 <body>
-<h1>OFF<br />WHITE</h1>
+  <h1>GuestBook</h1>
   <nav>
-  <a class="nav-atags" href="{% url 'top_entries' %}">View Top Posts!</a>
-  <a class="nav-atags" href="{% url 'create_entry' %}">Create a Post!</a>
-  <a class="nav-atags" href="{% url 'latest_entries' %}">Latest Entries!</a>
-  <a class="nav-atags" href="">Do Something Else!</a>
+    <a class="nav-atags" href="{% url 'top_entries' %}">View Top Posts</a>
+    <a class="nav-atags" href="{% url 'create_entry' %}">Create a Post</a>
+    <a class="nav-atags" href="{% url 'latest_entries' %}">Latest Entries</a>
   </nav>
   <div class="holder">
     <ul class="item-list">
       {% for entry in entries%}
       <li class="item-list--item">
-        <P class="list-item--content">{{ entry.content }}</P>
-        <p class="list-item--content"><button>Like:</button>  {{ entry.likes }}</p>
+        <p class="list-item--content">{{ entry.content }}</p>
+        <p class="list-item--content"><button>👍</button> {{ entry.likes }}</p>
       </li>
       {% endfor %}
     </ul>
-    </div>
+  </div>
 </body>
+
 </html>
