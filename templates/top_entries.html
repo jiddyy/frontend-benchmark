@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{% static 'base.css' %}">
+  <script src="entries.js" defer></script>
+  <title>Top Entries</title>
+</head>
+
+<body>
+  <h1>GuestBook</h1>
+  <div class="nav">
+    <a class="nav-titles" href="{% url 'top_entries' %}">View Top Posts</a>
+    <a class="nav-titles" href="{% url 'create_entry' %}">Create a Post</a>
+    <a class="nav-titles" href="{% url 'latest_entries' %}">Latest Entries</a>
+  </div>
+  <div class="holder">
+    <ul class="list">
+      {% for entry in entries%}
+      <li>
+        <p class="item">{{ entry.content }} <button id="like-button">👍</button> {{ entry.likes }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+
+</html>
