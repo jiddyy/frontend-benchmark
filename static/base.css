@@ -7,10 +7,11 @@ h1 {
 a {
     text-decoration: none;
     text-align: center;
+    color: black;
 }
 .nav {
     text-align: center;
-
+    border: 2px solid black;
 }
 .nav-titles {
     padding-left: 2rem;
@@ -22,4 +23,11 @@ input {
 }
 .list {
     list-style-type: none;
+}
+.likes-button {
+    border: none;
+}
+.likes-button:hover {
+    border: 1px solid black;
+    cursor: pointer;
 }
